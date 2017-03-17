@@ -363,9 +363,8 @@ namespace DarkUI.Controls
             var trackAreaSize = isVert ? _trackArea.Height - _thumbArea.Height : _trackArea.Width - _thumbArea.Width;
 
             var positionRatio = (float)positionInPixels / (float)trackAreaSize;
-            var viewScrollSize = (Maximum - ViewSize);
-
-            var newValue = (int)(positionRatio * viewScrollSize);
+            var viewScrollSize = ((-Minimum) + Maximum - ViewSize);
+            var newValue = (int)(positionRatio * viewScrollSize + Minimum);
             Value = newValue;
         }
 
@@ -429,9 +428,23 @@ namespace DarkUI.Controls
         private void UpdateThumb(bool forceRefresh = false)
         {
             // Calculate size ratio
-            _viewContentRatio = (float)ViewSize / (float)Maximum;
-            var viewAreaSize = Maximum - ViewSize;
-            var positionRatio = (float)Value / (float)viewAreaSize;
+            var maxsize = (float) (Maximum - Minimum);
+            if (Minimum > 0) maxsize = (float) (Maximum - Minimum);
+            if (maxsize == 0)
+            {
+                _viewContentRatio = 1.0f;
+            }
+            else
+            {
+                _viewContentRatio = ((float)(Width - Consts.ScrollBarSize * 2) / maxsize) / (float)Width;
+            }
+            var viewAreaSize = maxsize;
+            if (viewAreaSize <= 0) viewAreaSize = 1;
+            var positionRatio = ((float)Value - Minimum) / (float)viewAreaSize;
+            if (Minimum < 0)
+            {
+                positionRatio = (float) ((Minimum*-1) + (float) Value)/(float) viewAreaSize;
+            }
 
             // Update area
             if (_scrollOrientation == DarkScrollOrientation.Vertical)

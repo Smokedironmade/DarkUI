@@ -278,7 +278,7 @@ namespace DarkUI.Controls
                 fillColor = Colors.GreySelection;
             }
 
-            using (var b = new SolidBrush(Colors.GreyBackground))
+            using (var b = new SolidBrush(this.BackColor))
             {
                 g.FillRectangle(b, rect);
             }

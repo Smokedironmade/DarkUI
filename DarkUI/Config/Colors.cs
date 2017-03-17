@@ -6,7 +6,7 @@ namespace DarkUI.Config
     {
         public static Color GreyBackground
         {
-            get { return Color.FromArgb(60, 63, 65); }
+            get { return Color.FromArgb(45,45,48); }
         }
 
         public static Color HeaderBackground
@@ -47,6 +47,11 @@ namespace DarkUI.Config
         public static Color LightestBackground
         {
             get { return Color.FromArgb(178, 178, 178); }
+        }
+
+        public static Color LighterBorder
+        {
+            get { return Color.FromArgb(90, 90, 90); }
         }
 
         public static Color LightBorder

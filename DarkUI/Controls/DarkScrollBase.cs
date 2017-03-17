@@ -336,6 +336,7 @@ namespace DarkUI.Controls
 
         private void DragTimer_Tick(object sender, EventArgs e)
         {
+            return;
             var pos = PointToClient(MousePosition);
 
             var right = ClientRectangle.Right;
@@ -374,6 +375,12 @@ namespace DarkUI.Controls
 
             if (_hScrollBar.Visible)
             {
+                var zero = ClientRectangle.Left;
+                if (_vScrollBar.Minimum < 0)
+                {
+                    
+                }
+                var center = ClientRectangle.Right - ClientRectangle.Left;
                 // Scroll left
                 if (pos.X < ClientRectangle.Left)
                 {

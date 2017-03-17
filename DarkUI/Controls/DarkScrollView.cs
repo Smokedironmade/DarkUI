@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace DarkUI.Controls
 {
-    public abstract class DarkScrollView : DarkScrollBase
+    public class DarkScrollView : DarkScrollBase
     {
         #region Constructor Region
 
-        protected DarkScrollView()
+        public DarkScrollView()
         {
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
                      ControlStyles.ResizeRedraw |
@@ -18,7 +18,10 @@ namespace DarkUI.Controls
 
         #region Paint Region
 
-        protected abstract void PaintContent(Graphics g);
+        protected virtual void PaintContent(Graphics g)
+        {
+            
+        }
 
         protected override void OnPaint(PaintEventArgs e)
         {

@@ -311,7 +311,7 @@ namespace DarkUI.Controls
 
             var textColor = Colors.LightText;
             var borderColor = Colors.GreySelection;
-            var fillColor = _isDefault ? Colors.DarkBlueBackground : Colors.LightBackground;
+            var fillColor = BackColor;
 
             if (Enabled)
             {
