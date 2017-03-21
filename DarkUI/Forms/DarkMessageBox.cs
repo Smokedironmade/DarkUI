@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DarkUI.Forms
@@ -38,7 +39,7 @@ namespace DarkUI.Forms
             InitializeComponent();
         }
 
-        public DarkMessageBox(string message, string title, DarkMessageBoxIcon icon, DarkDialogButton buttons)
+        public DarkMessageBox(string message, string title, DarkMessageBoxIcon icon, DarkDialogButton buttons, Icon formIcon)
             : this()
         {
             Text = title;
@@ -46,46 +47,51 @@ namespace DarkUI.Forms
 
             DialogButtons = buttons;
             SetIcon(icon);
+            if (formIcon != null)
+            {
+                ShowInTaskbar = true;
+                Icon = formIcon;
+            }
         }
 
-        public DarkMessageBox(string message)
-            : this(message, null, DarkMessageBoxIcon.None, DarkDialogButton.Ok)
+        public DarkMessageBox(string message, Icon formIcon)
+            : this(message, null, DarkMessageBoxIcon.None, DarkDialogButton.Ok, formIcon)
         { }
 
-        public DarkMessageBox(string message, string title)
-            : this(message, title, DarkMessageBoxIcon.None, DarkDialogButton.Ok)
+        public DarkMessageBox(string message, string title, Icon formIcon)
+            : this(message, title, DarkMessageBoxIcon.None, DarkDialogButton.Ok,formIcon)
         { }
 
-        public DarkMessageBox(string message, string title, DarkDialogButton buttons)
-            : this(message, title, DarkMessageBoxIcon.None, buttons)
+        public DarkMessageBox(string message, string title, DarkDialogButton buttons, Icon formIcon)
+            : this(message, title, DarkMessageBoxIcon.None, buttons,formIcon)
         { }
 
-        public DarkMessageBox(string message, string title, DarkMessageBoxIcon icon)
-            : this(message, title, icon, DarkDialogButton.Ok)
+        public DarkMessageBox(string message, string title, DarkMessageBoxIcon icon, Icon formIcon)
+            : this(message, title, icon, DarkDialogButton.Ok,formIcon)
         { }
 
         #endregion
 
         #region Static Method Region
 
-        public static DialogResult ShowInformation(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok)
+        public static DialogResult ShowInformation(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok, Icon formIcon = null)
         {
-            return ShowDialog(message, caption, DarkMessageBoxIcon.Information, buttons);
+            return ShowDialog(message, caption, DarkMessageBoxIcon.Information, buttons, formIcon);
         }
 
-        public static DialogResult ShowWarning(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok)
+        public static DialogResult ShowWarning(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok, Icon formIcon = null)
         {
-            return ShowDialog(message, caption, DarkMessageBoxIcon.Warning, buttons);
+            return ShowDialog(message, caption, DarkMessageBoxIcon.Warning, buttons, formIcon);
         }
 
-        public static DialogResult ShowError(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok)
+        public static DialogResult ShowError(string message, string caption, DarkDialogButton buttons = DarkDialogButton.Ok, Icon formIcon = null)
         {
-            return ShowDialog(message, caption, DarkMessageBoxIcon.Error, buttons);
+            return ShowDialog(message, caption, DarkMessageBoxIcon.Error, buttons,formIcon);
         }
 
-        private static DialogResult ShowDialog(string message, string caption, DarkMessageBoxIcon icon, DarkDialogButton buttons)
+        private static DialogResult ShowDialog(string message, string caption, DarkMessageBoxIcon icon, DarkDialogButton buttons, Icon formIcon)
         {
-            using (var dlg = new DarkMessageBox(message, caption, icon, buttons))
+            using (var dlg = new DarkMessageBox(message, caption, icon, buttons,formIcon))
             {
                 var result = dlg.ShowDialog();
                 return result;
