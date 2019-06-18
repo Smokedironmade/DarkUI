@@ -155,6 +155,12 @@
     <Compile Include="Forms\DarkForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\DarkInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DarkInputBox.Designer.cs">
+      <DependentUpon>DarkInputBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DarkMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\DarkDialog.resx">
       <DependentUpon>DarkDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DarkInputBox.resx">
+      <DependentUpon>DarkInputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DarkMessageBox.resx">
       <DependentUpon>DarkMessageBox.cs</DependentUpon>
