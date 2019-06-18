@@ -61,7 +61,7 @@ namespace DarkUI.Forms
             this.txtInput.Location = new System.Drawing.Point(10, 49);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(225, 23);
-            this.txtInput.TabIndex = 5;
+            this.txtInput.TabIndex = 0;
             // 
             // DarkInputBox
             // 

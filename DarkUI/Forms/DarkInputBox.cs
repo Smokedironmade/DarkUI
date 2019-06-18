@@ -93,6 +93,7 @@ namespace DarkUI.Forms
         {
             using (var dlg = new DarkInputBox(message, caption, icon, buttons,formIcon))
             {
+                dlg.txtInput.Focus();
                 var result = dlg.ShowDialog();
                 output = dlg.txtInput.Text;
                 return result;
@@ -160,12 +161,13 @@ namespace DarkUI.Forms
                 height = offsetHeight + lblText.Height;
             }
 
-            txtInput.Location = new Point(lblText.Location.X, txtInput.Location.Y);
-            txtInput.Width = lblText.Width;
-
             // Force the width to the minimum width
             if (width < minWidth)
                 width = minWidth;
+
+            txtInput.Location = new Point(25, txtInput.Location.Y);
+            txtInput.Width = width - 50;
+            txtInput.Focus();
 
             // Set the new size of the dialog
             Size = new Size(width, height);
