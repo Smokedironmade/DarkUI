@@ -32,6 +32,7 @@ namespace Example
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.darkDateTimePicker1 = new DarkUI.Controls.DarkDateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.darkRadioButton3 = new DarkUI.Controls.DarkRadioButton();
             this.darkRadioButton2 = new DarkUI.Controls.DarkRadioButton();
@@ -49,6 +50,7 @@ namespace Example
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.darkDateTimePicker1);
             this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Controls.Add(this.panel2);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -57,6 +59,18 @@ namespace Example
             this.pnlMain.Padding = new System.Windows.Forms.Padding(10);
             this.pnlMain.Size = new System.Drawing.Size(280, 425);
             this.pnlMain.TabIndex = 0;
+            // 
+            // darkDateTimePicker1
+            // 
+            this.darkDateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkDateTimePicker1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(73)))), ((int)(((byte)(74)))));
+            this.darkDateTimePicker1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.darkDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.darkDateTimePicker1.Location = new System.Drawing.Point(10, 202);
+            this.darkDateTimePicker1.Name = "darkDateTimePicker1";
+            this.darkDateTimePicker1.Size = new System.Drawing.Size(257, 23);
+            this.darkDateTimePicker1.TabIndex = 3;
             // 
             // panel1
             // 
@@ -207,5 +221,6 @@ namespace Example
         private DarkUI.Controls.DarkCheckBox darkCheckBox2;
         private DarkUI.Controls.DarkCheckBox darkCheckBox1;
         private DarkUI.Controls.DarkTitle darkTitle2;
+        private DarkUI.Controls.DarkDateTimePicker darkDateTimePicker1;
     }
 }
